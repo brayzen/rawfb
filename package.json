@@ -1,10 +1,11 @@
 {
-  "name": "myAlbert",
+  "name": "rawfb",
   "private": true,
   "version": "0.0.0",
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
+    "consolidate": "^0.14.5",
     "ejs": "2.3.4",
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.0.0",
@@ -22,6 +23,7 @@
     "jade": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "pug": "^2.0.0-rc.3",
     "rc": "1.0.1",
     "sails": "~0.12.13",
     "sails-disk": "~0.10.9",
@@ -34,8 +36,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/brianray/myAlbert.git"
+    "url": "git://github.com/brianray/rawfb.git"
   },
   "author": "brianray",
-  "license": ""
+  "license": "MIT"
 }

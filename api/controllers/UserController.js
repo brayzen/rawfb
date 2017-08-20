@@ -19,6 +19,7 @@ module.exports = {
 
 	signup: function (req, res) {
 		User.create(req.params.all()).exec(function (err, user){
+			console.log(user);
 			if (err) return res.negotiate(err);
 			req.login(user, function (err) {
 				if (err) return res.negotiate(err);
@@ -45,7 +46,6 @@ module.exports = {
 			if (err) {
 				return sails.log('Error:', err)
 			}
-			
 			console.log('text:', text)
 			return res.json({record: record[0], text: text});		
 		});

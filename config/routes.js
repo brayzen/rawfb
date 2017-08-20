@@ -34,11 +34,11 @@ module.exports.routes = {
 
   '/': { view: 'homepage' },
 	
-	'get /login': { view: 'user/login' },
-	'get /signup': { view: 'user/signup' },
-	'/welcome': { view: 'user/welcome' },
-	'post /login': { view: 'UserController.login' },
-	'post /signup': { view: 'UserController.signup' },
+	'get /login': { view: 'users/login' },
+	'get /signup': { view: 'users/signup' },
+	'/welcome': { view: 'welcome' },
+	'post /login': 'UserController.login',
+	'post /signup': 'UserController.signup', 
 	'/logout': 'UserController.logout',
 	
 	'get /brian': 'UserController.brian',
