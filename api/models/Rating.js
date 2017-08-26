@@ -1,19 +1,15 @@
 /**
- * User.js
+ * Rating.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
 module.exports = {
-	connection: 'localPostgresql',
+
   attributes: {
-		firstName: 'string',
-		lastName: 'string',
-		emails: {
-			collection: 'email',
-			via: 'owner'
-		} 
+		title: { type: 'string' },
+		response: { type: 'integer' }
   }
 };
 

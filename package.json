@@ -27,6 +27,7 @@
     "rc": "1.0.1",
     "sails": "~0.12.13",
     "sails-disk": "~0.10.9",
+    "sendgrid": "^5.2.2",
     "using-passport": "git+https://github.com/sails101/using-passport.git"
   },
   "scripts": {
@@ -39,5 +40,8 @@
     "url": "git://github.com/brianray/rawfb.git"
   },
   "author": "brianray",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "sails-hook-autoreload": "^1.0.0"
+  }
 }

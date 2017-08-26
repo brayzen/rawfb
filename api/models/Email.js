@@ -10,6 +10,8 @@ module.exports = {
   attributes: {
 		address: {
 			type: 'string',
+			required: true,
+			unique: true
 		},
 		owner: {
 			model: 'user'	
