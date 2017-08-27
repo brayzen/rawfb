@@ -1,2 +1,40 @@
-div
-	p Hello World
+//-homepage.pug
+extends layout
+
+block content
+	div.page
+		div.fb-form
+			form(action="/signup.js" method="POST")
+				div.fb-to-names.fb-comp
+					p Who needs to know what you have to say?
+					input#first-name(name="firstName" placeholder="First Name")
+					input#last-name(name="lastName" placeholder="Last Name")
+				div.fb-email.fb-comp
+					input#email(name="email" placeholder="Email Address" min="200")
+				div.fb-ratings.fb-comp
+					div.fb-likable.fb-comp
+						label(for="rating-likable") Likable:  
+						select(name="rating-likable")
+							option(value="1") 1
+							option(value="2") 2
+							option(value="3") 3
+							option(value="4") 4
+							option(value="5" selected="selected") 5
+					div.fb-trustworthy.fb-comp
+						label(for="rating-trustworthy") Trustworthy:  
+						select(name="rating-trustworthy")
+							option(value="1") 1
+							option(value="2") 2
+							option(value="3") 3
+							option(value="4") 4
+							option(value="5" selected="selected") 5
+					label(for="message") What do you want to say?:
+				div.fb-message.fb-comp
+					input#message(name="message" placeholder="Tell them what they need to hear..." )
+				div.anonymous.fb-comp
+					input#anonymous-button(name="anonymous-button" type="button" value="I want to include my name / Leave Testimony")
+				div.read-reciept.fb-comp
+					input#read-receipt(name="read-receipt" type="checkbox")
+					label(for="read-reciept") Read-Receipt?
+				
+

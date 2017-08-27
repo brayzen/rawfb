@@ -31,8 +31,8 @@ module.exports.views = {
   ****************************************************************************/
 
   engine: {
-		name: 'jade',
-		module: 'jade',
+		name: 'pug',
+		module: 'pug',
 		ext: 'pug'
 	},
 
