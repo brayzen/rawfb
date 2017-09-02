@@ -18,6 +18,10 @@ body {
 		z-index: 100;
 		display: table-cell;
 		
+		.fb-comp{
+			margin: .4em auto;	
+		}
+		
 		.fb-form {
 			margin: 1em auto;
 			padding: 1em;
@@ -34,14 +38,19 @@ body {
 			
 			.being-square{
 				display: inline-block;
+				margin: .5em .2em;
 				border: 1px solid black;
 				border-radius: 5px;
-				background: rgba(200, 0, 100, 0.4);
+				background: @secondary-color;
 				text-align: center;
-				margin: auto;
 				padding: .3em;
 				font-family: @secondary-font;
 				font-size: .8em;
+
+				&:hover {
+					background-color: red;	
+					color: white;
+				}
 			}
 		}		
 
@@ -55,6 +64,11 @@ body {
 			font-size: 1.5em;
 			clear: both;	
 			width: 100px; 
+		}
+
+		#button-submit {
+			font-size: 2em;
+			min-width: 100px;
 		}
 	}
 	
@@ -74,6 +88,8 @@ body {
 
 .stars {
   cursor: pointer;
+	border: 1px solid red;
+	border-right: 1px solid black;
   
 	&:hover {
     .star polygon {
@@ -81,16 +97,18 @@ body {
     }
   }
   
+	@background-star-color: #c3c3c3;
+
 	.star {
     float: left;
 
     polygon {
-      fill: #d8d8d8;
+      fill: @background-star-color
     }
 
     &:hover ~ .star {
       polygon {
-        fill: #d8d8d8 !important;
+        fill: @background-star-color !important;
       }
     }
   }
@@ -103,31 +121,31 @@ body {
   
   &[data-stars="1"] {
     .star:nth-child(1) ~ .star polygon {
-      fill: #d8d8d8;
+      fill: @background-star-color;
     }
   }
   
   &[data-stars="2"] {
     .star:nth-child(2) ~ .star polygon {
-      fill: #d8d8d8;
+      fill: @background-star-color;
     }
   }
   
   &[data-stars="3"] {
     .star:nth-child(3) ~ .star polygon {
-      fill: #d8d8d8;
+      fill: @background-star-color;
     }
   }
   
   &[data-stars="4"] {
     .star:nth-child(4) ~ .star polygon {
-      fill: #d8d8d8;
+      fill: @background-star-color;
     }
   }
   
   &[data-stars="5"] {
     .star:nth-child(5) ~ .star polygon {
-      fill: #d8d8d8;
+      fill: @background-star-color;
     }
   }
 }

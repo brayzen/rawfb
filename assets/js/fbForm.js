@@ -3,7 +3,15 @@
 //
 $(function(){
 
-	var selectedWaysOfBeing = [];
+	var selectedWaysOfBeing = [],
+			likableRating,
+			trustworthyRating,
+			toFirstName,
+			toLastName,
+			toEmail,
+			message,
+			fromFirstName,
+			fromLastName;
 
 	// Button to toggle anonymity
 	$('#testimony-button, #anonymous-button').on('click', function(){

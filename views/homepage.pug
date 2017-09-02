@@ -4,6 +4,7 @@ extends layout
 block append script
 	script(src="./js/fbForm.js")
 	script(src="./js/starRating.js")
+	script(src="./js/initialDataLoad.js")
 		
 block content
 	div.page
@@ -54,12 +55,6 @@ block content
 				div.fb-being.fb-comp
 					label(for="being") How were they Being?:
 					select#being-select.fb-select-box(name="being")
-						- var waysOfBeing = [' ', 'rude', 'helpless', 'powerless']	
-						each being in waysOfBeing
-							if (being === ' ') 
-								option(value=(being) selected="selected") #{being}
-							else
-								option(value=(being)) #{being}
 
 					div.being-box
 
@@ -81,6 +76,7 @@ block content
 					
 				input#button-signin.hide(type="button" value="Sign In/Up")
 
+				input#button-submit(type="button" value="Send")
 				
 				
 
