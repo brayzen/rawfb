@@ -28,7 +28,23 @@ body {
 			text-align: center;
 			z-index: 101;
 		}
-		
+
+		.being-box {
+			margin: auto;
+			
+			.being-square{
+				display: inline-block;
+				border: 1px solid black;
+				border-radius: 5px;
+				background: rgba(200, 0, 100, 0.4);
+				text-align: center;
+				margin: auto;
+				padding: .3em;
+				font-family: @secondary-font;
+				font-size: .8em;
+			}
+		}		
+
 		#message {
 			padding: .5em;	
 			width: 98%;
@@ -54,4 +70,64 @@ body {
 	.show {
 		display: unset;	
 	}
+}
+
+.stars {
+  cursor: pointer;
+  
+	&:hover {
+    .star polygon {
+      fill: #ffd055 !important;
+    }
+  }
+  
+	.star {
+    float: left;
+
+    polygon {
+      fill: #d8d8d8;
+    }
+
+    &:hover ~ .star {
+      polygon {
+        fill: #d8d8d8 !important;
+      }
+    }
+  }
+  
+  &[data-stars] {
+    .star polygon {
+      fill: #ffd055;
+    }
+  }
+  
+  &[data-stars="1"] {
+    .star:nth-child(1) ~ .star polygon {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="2"] {
+    .star:nth-child(2) ~ .star polygon {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="3"] {
+    .star:nth-child(3) ~ .star polygon {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="4"] {
+    .star:nth-child(4) ~ .star polygon {
+      fill: #d8d8d8;
+    }
+  }
+  
+  &[data-stars="5"] {
+    .star:nth-child(5) ~ .star polygon {
+      fill: #d8d8d8;
+    }
+  }
 }
