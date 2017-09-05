@@ -11,6 +11,7 @@ module.exports = {
 		role: 'string',
 		firstName: 'string',
 		lastName: 'string',
+		defaultEmail: 'string',
 		emails: {
 			collection: 'email',
 			via: 'owner'

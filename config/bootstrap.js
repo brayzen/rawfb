@@ -13,5 +13,16 @@ module.exports.bootstrap = function(cb) {
 
   // It's very important to trigger this callback method when you are finished
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
-  cb();
+	User.count().exec(function(err, count){
+		if (err) {
+			sails.log.error('Already have data.');
+			return(cb(err));
+		}	
+		if (count > 20) return cb();
+
+		var UserFactory = require('../test/fixtures/UserFactory');
+		
+		UserFactory.create(20)	
+		cb()
+	})	
 };

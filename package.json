@@ -42,6 +42,7 @@
   "author": "brianray",
   "license": "MIT",
   "devDependencies": {
+    "faker": "^4.1.0",
     "sails-hook-autoreload": "^1.0.0"
   }
 }
