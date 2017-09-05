@@ -75,8 +75,23 @@ body {
 	.fb-ratings{
 		padding: .5em 1em;
 		text-align: left;			
+		padding: auto;
+		
+		.rating-inner-box {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+
+			.fb-star-ratings-1,	.fb-star-ratings-2{ 
+				margin: .3em auto;
+				display: inline-block;
+				width: 8rem;
+				max-height: 1.5em;
+			}
+		}
 	}
 
+	
 	.hide {
 		display: none;
 	}
@@ -88,8 +103,6 @@ body {
 
 .stars {
   cursor: pointer;
-	border: 1px solid red;
-	border-right: 1px solid black;
   
 	&:hover {
     .star polygon {
