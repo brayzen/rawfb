@@ -2,6 +2,7 @@
 extends layout
 
 block append script
+	script(src="./js/feedbackCompiler.js")
 	script(src="./js/fbForm.js")
 	script(src="./js/starRating.js")
 	script(src="./js/initialDataLoad.js")
@@ -72,8 +73,8 @@ block content
 					input#testimony-button.testimony-display-1(name="anonymous-button" type="button" value="I want to include my name / Leave Testimony")
 					input#anonymous-button.testimony-display-2.hide(name="anonymous-button" type="button" value="Nevermind, I want to send Anonymously")
 					div.testimony-names.fb-comp
-						input#sender-first-name.testimony-display-2.hide(name="senderFirstName" placeholder="your First Name")
-						input#sender-last-name.testimony-display-2.hide(name="senderLastName" placeholder="your Last Name")
+						input#from-first-name.testimony-display-2.hide(name="senderFirstName" placeholder="your First Name")
+						input#from-last-name.testimony-display-2.hide(name="senderLastName" placeholder="your Last Name")
 
 				div.read-reciept.fb-comp
 					input#read-receipt(name="read-receipt" type="checkbox")
