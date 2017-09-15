@@ -6,7 +6,10 @@
 		this.msg = msg || ''
 	}
 
-  ErrorReport.prototype.throw = function(){
+  ErrorReport.prototype.throw = function(message){
+		this.passing = false
+		this.msg = message
+		console.error(this.msg)
 		$('#error-box').val(this.msg)	
 	}
 
@@ -29,39 +32,62 @@
 		this.toFirstName = $('#first-name').val()	
 		this.toLastName = $('#last-name').val()	
 		this.toEmail = $('#email').val()	
-		this.likableRating = $('#rating-likable').val()	
-		this.trustworthyRating = $('#rating-trustworthy').val()	
 		this.message = $('#message').val()	
 		this.fromFirstName= $('#from-first-name').val()
 		this.fromLastName = $('#from-last-name').val()
-		this.likableRating = $('.star[name=rating-likable]').val()
-		this.trustworthyRating = $('.star[name=rating-trustworthy]').val()
+		this.likableRating = $('.stars[name="rating-likable"]').attr('data-stars')
+		this.trustworthyRating = $('.stars[name="rating-trustworthy"]').attr('data-stars')
 	}
 
-	FeedbackCompiler.prototype.valMustHaves = function(){
-		if( this.toFirstName === '' || this.toLastName === '' || this.toEmail === '' || this.message === '' ){
-			this.errorReport.passing = false
-			this.errorReport.msg = 'Entered Improper email address, check and try again'
-			this.errorReport.throw()
+	FeedbackCompiler.prototype.validateFirstName = function(){
+		if( this.toFirstName === '' || this.toFirstName === undefined ) {
+		  this.errorReport.throw('You\'re missing the first name')	
+		} else {
+			this.errorReport.passing = true
 		}
-		return true
 	}
+
+
+	FeedbackCompiler.prototype.validateLastName = function(){
+		if( this.toLastName === '' || this.toLastName === undefined ) {
+		  this.errorReport.throw('You\'re missing the last name')	
+		} else {
+			this.errorReport.passing = true
+		}
+	}
+
+
+	FeedbackCompiler.prototype.validateMessage = function(){
+		if( this.message === '' || this.message === undefined ) {
+		  this.errorReport.throw('You\'re missing the message')	
+		} else {
+			this.errorReport.passing = true
+		}
+	}
+
+	FeedbackCompiler.prototype.validateAll = function(){
+		this.validateFirstName()
+		this.validateLastName()
+		this.validateMessage()
+		this.validateEmail()
+	}
+
 
 	FeedbackCompiler.prototype.validateEmail = function(){
-		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$"])"]))/
-		if (!this.email.test(re)){
-			this.errorReport.passing = false	
-		} else {
-			return false	
+		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+		
+		if (!re.test(this.toEmail)){
+			this.errorReport.throw('The email address you provided is not a valid email, please check it.')
 		}	
 	}
 
-	FeedbackCompiler.prototype.postFbToServer= function(){
-		this.valMustHaves()
-		this.validateEmail()
+	FeedbackCompiler.prototype.postFbToServer= function(cb){
 		if (this.errorReport.passing){
 			io.socket.post('/feedback', this, function(resData, jwRes){
-				console.log(jwRes)	
+				console.log(jwRes);
+				if(jwRes.statusCode === 200 || jwRes.statusCode === 201){
+					if (cb) cb()
+				}
 			})	
 		};
 	}
