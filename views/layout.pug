@@ -10,6 +10,16 @@ html
 			script(src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous")
 				
 	body
+		block header
+			#header
+				nav.header-bar 
+					ul
+						li.nav-link.logo ExpansionData
+						li.nav-link.nav-spacer
+						li.nav-link Mission
+						li.nav-link About
+						li.nav-link Log in
+
 		block content
 		block foot
 			#footer
