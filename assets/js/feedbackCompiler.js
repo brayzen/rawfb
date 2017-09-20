@@ -10,7 +10,9 @@
 		this.passing = false
 		this.msg = message
 		console.error(this.msg)
-		$('#error-box').val(this.msg)	
+		$('.error-box').append('<div class="error-text">' + this.msg + '</div>').show().fadeOut(5000, function(){
+			$(this).empty()
+		})
 	}
 
 	var FeedbackCompiler = function(){
@@ -89,6 +91,8 @@
 					if (cb) cb()
 				}
 			})	
-		};
+		} else {
+			console.log('failed passing, clearing in 5 seconds')
+		}
 	}
 

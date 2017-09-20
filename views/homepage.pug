@@ -7,8 +7,9 @@ block append script
 	script(src="./js/initialDataLoad.js")
 		
 block content
+	div.error-box.hide
+		div.error-text 
 	div.page
-		- var title = 'yo yo yo'
 		div.fb-form
 			form(action="/signup.js" method="POST")
 
