@@ -7,10 +7,8 @@ block append script
 	script(src="./js/fbForm.js")
 	script(src="./js/initialDataLoad.js")
 		
-block content
-	div.error-box.hide
-		div.error-text 
-	div.page
+block fbForm
+	div.overlay
 		div.fb-form
 			form(action="/signup.js" method="POST")
 
@@ -88,5 +86,7 @@ block content
 
 				input#button-submit(type="button" value="Send")
 				
-				
 
+block content
+	div.error-box.hide
+		div.error-text 

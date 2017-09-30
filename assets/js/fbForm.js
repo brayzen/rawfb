@@ -4,17 +4,28 @@
 //
 
 function clearForm(){
-		$('#first-name').val('')	
-		$('#last-name').val('')	
-		$('#email').val('')	
-		$('#message').val('')	
-		$('#from-first-name').val('')
-		$('#from-last-name').val('')
-		$('#from-first-name').val('')
-		$('#from-last-name').val('')
-		$('.stars[name="rating-likable"]').data('stars', 5)
-		$('.stars[name="rating-trustworthy"]').data('stars', 5)
+	$('#first-name').val('')	
+	$('#last-name').val('')	
+	$('#email').val('')	
+	$('#message').val('')	
+	$('#from-first-name').val('')
+	$('#from-last-name').val('')
+	$('#from-first-name').val('')
+	$('#from-last-name').val('')
+	$('.stars[name="rating-likable"]').data('stars', 5)
+	$('.stars[name="rating-trustworthy"]').data('stars', 5)
+}
+
+function peekaboo(e){
+	if (typeof element === 'string'){
+		$(e).toggleClass('hide')	
 	}
+}
+
+function hideOverlay(cb){
+	console.log('yo ho ho');
+	cb('.overlay')	
+}
 
 $(function(){
 	
@@ -74,8 +85,10 @@ $(function(){
 
 	//Submit button send off
 	$('#button-submit').click(function(){
+		
 		fb.setData()
 		fb.validateAll()
-		fb.postFbToServer(clearForm)
+		fb.postFbToServer(clearForm, hideOverlay)
 	})
+
 })

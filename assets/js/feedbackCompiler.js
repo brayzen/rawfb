@@ -83,12 +83,16 @@
 		}	
 	}
 
-	FeedbackCompiler.prototype.postFbToServer= function(cb){
+	FeedbackCompiler.prototype.postFbToServer= function(cb, cb2){
 		if (this.errorReport.passing){
 			io.socket.post('/feedback', this, function(resData, jwRes){
 				console.log(jwRes);
 				if(jwRes.statusCode === 200 || jwRes.statusCode === 201){
-					if (cb) cb()
+					if (cb) 
+						cb()
+						console.log('cb2:', cb2);
+					if (cb2) 
+						cb2()
 				}
 			})	
 		} else {

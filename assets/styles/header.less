@@ -12,14 +12,18 @@
 			-webkit-flex-flow: row nowrap;
 			flex-flow: row nowrap;
 			justify-content: flex-start;
-			align-items: baseline;
-			
+			align-items: center;
+		  background-color: @bg-header-color;	
 			list-style-type: none;
-			vertical-align: center;
+			max-height: 2.2rem;
 
 		
 			.nav-link.nav-spacer {
 				flex: 1;
+
+				&:hover {
+					background-color: @bg-header-color;	
+				}
 			}
 
 			.nav-link {
@@ -39,6 +43,7 @@
 
 				&.logo {
 					border: 2px solid black;
+					padding: .15rem;
 					border-radius: 3px;
 					font-size: 1.5rem;	
 					flex: 0 1 auto;
