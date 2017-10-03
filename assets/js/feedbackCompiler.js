@@ -83,20 +83,23 @@
 		}	
 	}
 
-	FeedbackCompiler.prototype.postFbToServer= function(cb, cb2){
-		if (this.errorReport.passing){
-			io.socket.post('/feedback', this, function(resData, jwRes){
-				console.log(jwRes);
-				if(jwRes.statusCode === 200 || jwRes.statusCode === 201){
-					if (cb) 
-						cb()
-						console.log('cb2:', cb2);
-					if (cb2) 
-						cb2()
-				}
-			})	
-		} else {
-			console.log('failed passing, clearing in 5 seconds')
-		}
+	FeedbackCompiler.prototype.postFbToServer = function(){
+		console.log('Error Report:', this.errorReport)
+		var _this = this
+		return new Promise(function(resolve, reject){
+			if (_this.errorReport.passing){
+				io.socket.post('/feedback', _this, function(resData, jwRes){
+					console.log(jwRes);
+					if(jwRes.statusCode === 200 || jwRes.statusCode === 201){
+						resolve(jwRes)
+					} else {
+						reject(jwRes)	
+					}
+				})	
+			} else {
+				reject(false)
+				console.log('failed passing, clearing in 5 seconds')
+			}
+		})
 	}
 

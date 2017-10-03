@@ -33,6 +33,7 @@ body {
 		padding: .2rem;
 	}
 
+
 	.overlay {
 		background: rgb(0, 0, 0);
 		background: rgba(0, 0, 0, 0.7);
@@ -40,11 +41,27 @@ body {
 		height: 100%;
 		position: absolute;
 		z-index: 3;
-		display: table-cell;
 		top: -.1rem;
 		
 		.fb-comp{
 			margin: .4em auto;	
+		}
+		
+		.fb-to-names { 
+			input {
+				border-radius: 3px;
+				border-style: ridge;
+				margin: 0 .3rem;
+			}
+		}
+		   
+		.fb-email{
+				
+			&input {
+				border-radius: 3px;
+				border-style: ridge;
+				width: rem;
+			}
 		}
 		
 		.fb-form {
@@ -187,4 +204,21 @@ body {
       fill: @background-star-color;
     }
   }
+}
+
+#message {
+	width: 90%;
+	height: 5rem;
+}
+
+
+.no-overlay{
+	text-align: center;
+	padding: 1rem;
+	width: 30%;
+	height: 100%;
+	position: relative; 
+	z-index: 3;
+	top: -.1rem;
+	border: 3px solid orange;
 }

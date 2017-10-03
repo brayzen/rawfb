@@ -22,15 +22,22 @@ function peekaboo(e){
 	}
 }
 
-function hideOverlay(cb){
+function hideOverlay(){
 	console.log('yo ho ho');
-	cb('.overlay')	
+	peekaboo('.overlay')	
+}
+
+function toggleOverlay(){
+	console.log('toggling overlay');
+	$('#form').toggleClass('overlay')
+	$('#form').toggleClass('no-overlay')
 }
 
 $(function(){
 	
 	// made from Feedback compiler which should have been loaded ahead of fbFrom.js
 	var fb = new FeedbackCompiler()	
+
 
 	// Stars Thanks to Brian Knapp https://codepen.io/brianknapp/pen/JEotD/
 	$('.star.rating').click(function(){
@@ -85,10 +92,18 @@ $(function(){
 
 	//Submit button send off
 	$('#button-submit').click(function(){
-		
+	  var _peekaboo = peekaboo	
 		fb.setData()
 		fb.validateAll()
-		fb.postFbToServer(clearForm, hideOverlay)
+		fb.postFbToServer()
+		.then(function(resData){
+			console.log('testing:', resData);	
+			clearForm()
+			toggleOverlay()
+		}).catch(function(data){
+			console.log('failing data:', data);	
+		})
+		
 	})
 
 })
