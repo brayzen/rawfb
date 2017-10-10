@@ -28,6 +28,11 @@ module.exports = {
 		})	
 	},
 
+	signin: function (req, res) {
+		console.log('**************************************************')
+		res.view('/signin')	
+	},
+
 	brian: function (req, res) {
 		User.findById(1).exec(function (err, record) {
 			if (err) {
