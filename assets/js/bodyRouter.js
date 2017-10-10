@@ -5,22 +5,24 @@ var BodyRouter = function(){
 }
 
 BodyRouter.prototype.fetchAndPrint = function(route, element){
-	io.socket.get(route, function( resData, jwres){
+	$.get(route, function( resData, jwres){
 		var htmlText = resData
-		console.log('htmlTEXT:', htmlText)
 		$(element).html(htmlText);	
 	})
 }
-
 
 $(function(){
 	var bRouter = new BodyRouter()
 
 	$('#login').click(function(){
-		console.log('clicked by #login')
+		bRouter.fetchAndPrint('/signup', '#form')
+	})
 
+	$('#mission').click(function(){
+		bRouter.fetchAndPrint('/mission', '#form')
+	})
 
-
-		bRouter.fetchAndPrint('/signup', '#form')	
+	$('#about').click(function(){
+		bRouter.fetchAndPrint('/about', '#form')
 	})
 })
