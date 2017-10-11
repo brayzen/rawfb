@@ -46,7 +46,28 @@ body {
 		.fb-comp{
 			margin: .4em auto;	
 		}
-		
+		.form-header {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			align-items: center;	
+			
+			.form-head-e {
+				&.spacer {
+				  flex: 1 0 20%;		
+				}
+				
+				&.title {
+					flex: 2 0 40%;	
+				}
+
+				&.close-out {
+					flex: 1 0 20%;	
+					text-align: right;
+					margin-right: 6px;
+				}
+			}
+		}	
 		.fb-to-names { 
 			input {
 				border-radius: 3px;

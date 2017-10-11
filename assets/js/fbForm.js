@@ -31,6 +31,7 @@ function toggleOverlay(){
 	console.log('toggling overlay');
 	$('#form').toggleClass('overlay')
 	$('#form').toggleClass('no-overlay')
+	$('.close-out').toggleClass('hide')
 }
 
 $(function(){
@@ -103,7 +104,11 @@ $(function(){
 		}).catch(function(data){
 			console.log('failing data:', data);	
 		})
-		
+	})
+
+	//button to close form from x
+	$('.close-out').click(function(){
+		toggleOverlay()	
 	})
 
 })
