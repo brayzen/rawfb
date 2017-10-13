@@ -26,14 +26,20 @@
 // @import 'styleguide.less';
 // @import 'pages/login.less';
 // @import 'pages/signup.less';
+// @import 's/signup.less';
 //
 //
 
-@primary-font: 'AauxProLight';
+@font-face {
+	font-family: 'AauxProLight';
+	src: url('/fonts/Aaux ProLight OSF Regular.ttf');
+}
+
+@primary-font: 'Assistant', 'AauxProLight', sans-serif;
 @secondary-font: 'Helvetica';
 
 @secondary-color: rgba(200, 0, 100, 0.4);
-@primary-color: springgreen;
+@primary-color: #00ffff;
 @bg-header-color: #EEE;
 
 @import 'header.less';
