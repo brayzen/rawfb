@@ -9,13 +9,30 @@ BodyRouter.prototype.fetchAndPrint = function(route, element){
 	var _this = this
 	if (this.store[route]) {
 		$(element).html(this.store[route]);	
+		_this.changeUrl(route)
 	} else {	
-		$.get(route, function( resData, jwres){
-			var htmlText = resData
+		_this.fetch(route)
+		.then(function(htmlText){
 			$(element).html(htmlText)	
-		  _this.cache(route, htmlText)	
-		})
+			_this.cache(route, htmlText)	
+			_this.changeUrl(route)
+		})		
 	}
+}
+
+BodyRouter.prototype.fetch = function(route){
+	return new Promise(function(resolve, reject) {
+		$.get(route, function(resData, jwres){
+			if (jwres === 'success' || jwres === 200) {
+				resolve(resData)
+			}
+		})
+	})
+}
+
+BodyRouter.prototype.changeUrl = function(route){
+	var adjRoute = "/#" + route
+	window.location.href = adjRoute
 }
 
 BodyRouter.prototype.cache = function(route,  html){
