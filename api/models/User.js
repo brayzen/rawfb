@@ -9,9 +9,13 @@ module.exports = {
 	connection: 'localPostgresql',
   attributes: {
 		roles: 'string',
+		username: {
+			type: 'string',
+			unique: true,
+			index: true
+		},
 		firstName: 'string',
 		lastName: 'string',
-		defaultEmail: 'string',
 		emails: {
 			collection: 'email',
 			via: 'owner'
