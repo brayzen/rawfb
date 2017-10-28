@@ -3,7 +3,7 @@ var UserFactory = require('./fixtures/UserFactory');
 var FeedbackFactory = require('./fixtures/FeedbackFactory');
 
 before(function(done) {
-	 sails.log('hello AILS ERROR yo');
+	 sails.log('hello SAILS ERROR yo');
 // Increase the Mocha timeout so that Sails has enough time to lift.
    this.timeout(5000);
 
@@ -31,9 +31,8 @@ before(function(done) {
 				done(err, sails);
 			})
 			// here you can load fixtures, etc.
-	 }
-	});
-})
+	 })
+ });
 
 after(function(done) {
 	// here you can clear fixtures, etc.
