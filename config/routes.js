@@ -39,8 +39,11 @@ module.exports.routes = {
 	'get /mission': { view: 'mission' },
 	'get /about':   { view: 'about' },
 	'get /welcome': { view: 'welcome' },
-	'post /login':  'UserController.login',
+	'post /login':  '/auth/local',
+	
 	'post /signup': 'UserController.signup', 
+	
+	'get /currentUser': 'UserController.current',
 
 	'get /logout':  'UserController.logout',
 

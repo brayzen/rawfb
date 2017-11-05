@@ -27,11 +27,14 @@ module.exports = {
 			})
 		})	
 	},
-
+	current: function (req, res) {
+		console.log(req.session)	
+		return res.json(req.session);
+	},
 	brian: function (req, res) {
-		User.findById(1).exec(function (err, record) {
+		user.findbyid(1).exec(function (err, record) {
 			if (err) {
-				return sails.log('Error:', err)
+				return sails.log('error:', err)
 			}
 			
 			console.log('user NOW:', record)

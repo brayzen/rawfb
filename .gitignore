@@ -112,6 +112,7 @@ npm-debug.log
 **/*.swo
 **/*.swn
 **/*.swm
+**/*.swl
 
 *~
 *#

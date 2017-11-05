@@ -59,7 +59,7 @@ _.merge(exports, _super);
 _.merge(exports, {
 	connection: 'localPostgresql',
   attributes: {
-		roles: 'string',
+		roles: {type: 'integer', default: '2'}, 
 		firstName: 'string',
 		lastName: 'string',
 		emailList: {

@@ -12,5 +12,15 @@ $(function(){
 		$('#being-select').prepend($('<option/>', { value: 'undefined', text: '', selected: 'selected'}))
 
 	});	
+
+	$('#login-but').submit(function(e){
+		e.preventDefault();
+		console.log('e:', e);	
+		io.socket.get('/currentUser', function(resData jwres){
+			console.warn(resData);	
+		})			
+	})
+
+	
 	
 })
