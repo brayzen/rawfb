@@ -48,7 +48,7 @@ $(function(){
 	})
 
 	$('#login').click(function(){
-		bRouter.fetchAndPrint('/signup', '#body-container')
+		bRouter.fetchAndPrint('/login', '#body-container')
 	})
 
 	$('#mission').click(function(){
