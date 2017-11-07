@@ -50,22 +50,24 @@ module.exports.policies = {
 	// }
 	
 
+	
+
 	'*': [
-			'basicAuth',
-			'passport',
-			'sessionAuth',
-			'ModelPolicy',
-			'AuditPolicy',
-			'OwnerPolicy',
-			'PermissionPolicy',
-			'RolePolicy',
-			'CriteriaPolicy'
-		],
+	  'basicAuth',
+	  'passport',
+	  'sessionAuth',
+	  'ModelPolicy',
+	  'AuditPolicy',
+	  'OwnerPolicy',
+	  'PermissionPolicy',
+	  'RolePolicy',
+	  'CriteriaPolicy'
+	],
 
 	AuthController: {
-			'*': [ 'passport' ]
+		'*': ['passport']
 	},
-	
+
 	BeingController: {
 		'*': true,
 	},
